@@ -7,7 +7,7 @@ pipeline {
         pollSCM('* * * * *')
     }
     stages {
-        stage (git) {
+        stage (git checkout) {
             step {
                 git url : 
                 branch : dev
