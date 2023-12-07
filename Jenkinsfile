@@ -7,7 +7,7 @@ pipeline {
         pollSCM('* * * * *')
     }
     stages {
-        stage (git checkout) {
+        stage (git) {
             step {
                 git url : "https://github.com/vigneshgitdev/spring-petclinic-daybuild.git"
                 branch : dev
