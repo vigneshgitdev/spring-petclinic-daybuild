@@ -1,23 +1,23 @@
 pipeline {
-    agent { label "MAVEN_3.9.6"}
-    options {
-         timeout(time: 30, unit: 'MINUTES')
+    agent { label 'MAVENMAVEN_3.9.6' }
+    options { 
+        timeout(time: 30, unit: 'MINUTES') 
     }
-    trigger {
+    triggers {
         pollSCM('* * * * *')
     }
     stages {
-        stage (git) {
-            step {
-                git url : "https://github.com/vigneshgitdev/spring-petclinic-daybuild.git"
-                branch : dev
-
+        stage('git') {
+            steps {
+                git url: 'https://github.com/dummyrepos/spring-petclinic-nov23.git', 
+                    branch: 'dev'
             }
         }
-        stage (build) {
-            step {
-                sh "mvn clean package"
+        stage('build') {
+            steps {
+                sh 'mvn clean package'
             }
         }
     }
- }
+
+}
